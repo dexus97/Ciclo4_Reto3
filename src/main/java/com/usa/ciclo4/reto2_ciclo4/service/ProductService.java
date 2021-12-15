@@ -24,9 +24,9 @@ public class ProductService {
     public  Product save(Product product){
         if(product.getReference()==null){
             return product;
-        }else{
-            return productRepository.create(product);
         }
+        return productRepository.create(product);
+
     }
 
     public Product update(Product product) {
@@ -46,16 +46,17 @@ public class ProductService {
                     dbProduct.get().setDescription(product.getDescription());
                 }
 
-                if(product.getPrice()!=0.0){
-                    dbProduct.get().setPrice(product.getPrice());
-                }
                 if(product.getAvailability()!=null){
                     dbProduct.get().setAvailability(product.getAvailability());
+
+                }
+                if(product.getPrice()!=0.0){
+                        dbProduct.get().setPrice(product.getPrice());
                 }
                 if(product.getQuantity()!=0.0){
                     dbProduct.get().setQuantity(product.getQuantity());
                 }
-                if (product.getPhotography()!=null){
+                if (product.getPhotography()!= null){
                     dbProduct.get().setPhotography(product.getPhotography());
                 }
                 dbProduct.get().setAvailability(product.getAvailability());
@@ -70,10 +71,10 @@ public class ProductService {
     }
 
     public boolean delete(String reference){
-        Boolean aboolean = getProduct(reference).map(Product -> {
+        Boolean aBoolean = getProduct(reference).map(Product -> {
             productRepository.delete(Product);
             return true;
         }).orElse(false);
-        return aboolean;
+        return aBoolean;
     }
 }

@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("/api/user/")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UserController {
     @Autowired
@@ -19,6 +20,8 @@ public class UserController {
     public List<User> getAll(){
         return userService.getAll();
     }
+
+
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
@@ -46,6 +49,12 @@ public class UserController {
     @GetMapping("/emailexist/{email}")
     public boolean emailExists (@PathVariable("email") String email){
         return userService.emailExists(email);
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Optional<User> getUser(@PathVariable("id") int id){
+        return userService.getUser(id);
     }
 
 }

@@ -17,8 +17,10 @@ public class User {
     private Integer id;
     private String identification;
     private String name;
+    private String birthtDay;
+    private String monthBirthtDay;
     private String address;
-    private String cellphone;
+    private String cellPhone;
     private String email;
     private String password;
     private String zone;

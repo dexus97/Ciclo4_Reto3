@@ -18,7 +18,6 @@ public class UserRepository {
     }
 
     public Optional<User> getUser(int id){
-
         return userCrudRepository.findById(id);
     }
 
@@ -31,6 +30,7 @@ public class UserRepository {
     }
 
     public void delete(User user){
+
         userCrudRepository.delete(user);
     }
 

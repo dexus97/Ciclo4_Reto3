@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("api/cleaningproduct")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class ProductController {
     @Autowired
@@ -28,8 +28,9 @@ public class ProductController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Product product){
-    productService.save(product);
+    public Product create(@RequestBody Product product){
+
+        return productService.save(product);
     }
 
     @PutMapping("/update")

@@ -48,11 +48,19 @@ public class UserService {
                 if (user.getName() != null) {
                     dbUser.get().setName(user.getName());
                 }
+                if (user.getBirthtDay() !=null){
+                    dbUser.get().setBirthtDay(user.getBirthtDay());
+                }
+
+                if (user.getMonthBirthtDay() !=null){
+                    dbUser.get().setMonthBirthtDay(user.getMonthBirthtDay());
+                }
+
                 if (user.getAddress() != null) {
                     dbUser.get().setAddress(user.getAddress());
                 }
-                if (user.getCellphone() != null) {
-                    dbUser.get().setCellphone(user.getCellphone());
+                if (user.getCellPhone() != null) {
+                    dbUser.get().setCellPhone(user.getCellPhone());
                 }
                 if (user.getEmail() != null) {
                     dbUser.get().setEmail(user.getEmail());
@@ -86,6 +94,9 @@ public class UserService {
         }).orElse(false);
         return userBoolean;
     }
+
+
+
 
     public User authenticateUser(String email, String password){
         Optional<User> user = userRepository.authenticateUser(email, password);
