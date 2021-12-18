@@ -44,4 +44,14 @@ public class ProductController {
     public boolean delete(@PathVariable("reference") String reference){
         return productService.delete(reference);
     }
+
+    @GetMapping("/price/{price}")
+    public List<Product> getByPrice(@PathVariable("price")double price){
+        return productService.getByPrice(price);
+    }
+    @GetMapping("/description/{description}")
+    public List<Product>getByDescriptionContainingIgnoreCase(@PathVariable("description") String description){
+        return productService.getByDescriptionContainingIgnoreCase(description);
+    }
+
 }

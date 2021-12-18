@@ -77,4 +77,13 @@ public class ProductService {
         }).orElse(false);
         return aBoolean;
     }
+
+    public List<Product>getByPrice(double price){
+
+        return productRepository.getByPrice(price);
+    }
+
+    public List<Product>getByDescriptionContainingIgnoreCase(String description){
+        return productRepository.getByDescriptionContainingIgnoreCase(description);
+    }
 }

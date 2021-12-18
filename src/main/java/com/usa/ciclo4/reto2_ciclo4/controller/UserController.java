@@ -24,6 +24,12 @@ public class UserController {
         return userService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable("id") Integer id) {
+        return userService.getUser(id);
+    }
+
+
 
 
     @PostMapping("/new")
@@ -54,10 +60,9 @@ public class UserController {
         return userService.emailExists(email);
     }
 
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Optional<User> getUser(@PathVariable("id") int id){
-        return userService.getUser(id);
+    @GetMapping("/birthday/{monthBirthDay}")
+    public List<User>getByMonthBirthtDay(@PathVariable("monthBirthDay")String monthBirthDay){
+        return userService.getByMonthBirthDay(monthBirthDay);
     }
 
 }
