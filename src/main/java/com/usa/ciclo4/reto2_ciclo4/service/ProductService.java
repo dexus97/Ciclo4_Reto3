@@ -78,9 +78,9 @@ public class ProductService {
         return aBoolean;
     }
 
-    public List<Product>getByPrice(double price){
+    public List<Product>getByPriceLessThanEqual(double price){
 
-        return productRepository.getByPrice(price);
+        return productRepository.getByPriceLessThanEqual(price);
     }
 
     public List<Product>getByDescriptionContainingIgnoreCase(String description){

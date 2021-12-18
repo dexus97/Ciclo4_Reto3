@@ -46,8 +46,8 @@ public class ProductController {
     }
 
     @GetMapping("/price/{price}")
-    public List<Product> getByPrice(@PathVariable("price")double price){
-        return productService.getByPrice(price);
+    public List<Product> getByPriceLessThanEqual(@PathVariable("price")double price){
+        return productService.getByPriceLessThanEqual(price);
     }
     @GetMapping("/description/{description}")
     public List<Product>getByDescriptionContainingIgnoreCase(@PathVariable("description") String description){
